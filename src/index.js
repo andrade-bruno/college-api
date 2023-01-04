@@ -13,6 +13,6 @@ server.get('/test', (req, res) => {
 })
 
 server.listen(port, () => {
-	console.info(`Server is running.`)
-	console.info(`http://localhost:${port}/`)
+	console.info(`\nServer is running.`)
+	console.info(`http://localhost:${port}/\n`)
 })
