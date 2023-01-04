@@ -8,7 +8,7 @@ module.exports = {
 				name: "Job",
 				email: "breisin0@taobao.com",
 				active: true,
-				role: "Studant",
+				role: "Student",
 				createdAt: "2022-06-08",
 				updatedAt: "2022-08-14"
 			}, {
@@ -29,7 +29,7 @@ module.exports = {
 				name: "Sonsing",
 				email: "droblett3@technorati.com",
 				active: false,
-				role: "Studant",
+				role: "Student",
 				createdAt: "2022-03-08",
 				updatedAt: "2022-09-05"
 			}, {
