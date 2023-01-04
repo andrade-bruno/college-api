@@ -1,8 +1,11 @@
 # College API
 
-Creating Users model
+Creating models
 
-	npx sequelize-cli model:create --name User --attributes name:string,email:string,active:boolean,role:string
+	npx sequelize-cli model:create --name Users --attributes name:string,email:string,active:boolean,role:string
+	npx sequelize-cli model:create --name Roles --attributes description:string
+	npx sequelize-cli model:create --name Classes --attributes startedDate:dateonly
+	npx sequelize-cli model:create --name Enrollments --attributes status:string
 
 Migrations
 
