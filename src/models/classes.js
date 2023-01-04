@@ -4,7 +4,15 @@ module.exports = (sequelize, DataTypes) => {
 		startedDate: DataTypes.DATEONLY
 	}, {});
 	Classes.associate = function (models) {
-		// associations can be defined here
+		Classes.hasMany(models.Enrollments, {
+			foreignKey: 'classId'
+		})
+		Classes.belongsTo(models.Users, {
+			foreignKey: 'teacherId'
+		})
+		Classes.belongsTo(models.Roles, {
+			foreignKey: 'role_id'
+		})
 	};
 	return Classes;
 };
