@@ -1,18 +1,15 @@
 const express = require('express')
-const dotenv = require('dotenv')
-dotenv.config()
-const bodyParser = require('body-parser')
+const dotenv = require('dotenv').config()
+const routes = require('./routes')
 
 const server = express()
-server.use(bodyParser.json())
+const port = process.env.PORT
 
-const port = process.env.PORT || 3000
-
-server.get('/test', (req, res) => {
-	res.status(200).send({ message: 'College API' })
-})
+routes(server)
 
 server.listen(port, () => {
 	console.info(`\nServer is running.`)
 	console.info(`http://localhost:${port}/\n`)
 })
+
+module.exports = server

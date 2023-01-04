@@ -15,10 +15,13 @@ Reverting the last migration
 Reverting the last migration by executed time
 
 	db:migrate:undo --name [date-hour]-create-[table-name].js
+
+Initialized a seeder
+
+	npx sequelize-cli seed:generate --name demo-users
 	
 Seeding
 
-	npx sequelize-cli seed:generate --name demo-users
 	npx sequelize-cli db:seed:all
 
 Reverting last seed
