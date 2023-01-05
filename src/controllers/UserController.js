@@ -49,8 +49,10 @@ class UserController {
 		const { id } = req.params
 
 		try {
-			await db.Users.destroy({ where: { id: Number(id) } })
-			res.status(200).json({ message: 'User deleted sucessfully' })
+			const status = await db.Users.destroy({ where: { id: Number(id) } })
+
+			if (status == 0) res.status(404).json({ message: `User #${id} does'nt exists` })
+			else res.status(200).json({ message: 'User deleted sucessfully' })
 		} catch (error) {
 			res.status(500).json({ message: error.message })
 		}
@@ -88,11 +90,45 @@ class UserController {
 	static createEnrollment = async (req, res) => {
 		const { student_id } = req.params
 		const enrollment = { ...req.body, student_id }
-		console.log(enrollment)
 
 		try {
 			const newEnrollment = await db.Enrollments.create(enrollment)
 			res.status(201).json({ message: 'Enrollment created successfully', enrollment: newEnrollment })
+		} catch (error) {
+			res.status(500).json({ message: error.message })
+		}
+	}
+
+	static updateEnrollment = async (req, res) => {
+		const { student_id, enrollment_id } = req.params
+		const newEnrollment = req.body
+
+		try {
+			await db.Enrollments.update(newEnrollment, {
+				where: {
+					id: Number(enrollment_id),
+					student_id: Number(student_id)
+				}
+			})
+			const updatedEnrollment = await db.Enrollments.findOne({ where: { id: Number(enrollment_id) } })
+			res.status(200).json({ message: 'Enrollment updated successfully', enrollment: updatedEnrollment })
+		} catch (error) {
+			res.status(500).json({ message: error.message })
+		}
+	}
+
+	static deleteEnrollment = async (req, res) => {
+		const { student_id, enrollment_id } = req.params
+
+		try {
+			const status = await db.Enrollments.destroy({
+				where: {
+					id: Number(enrollment_id),
+					student_id: Number(student_id)
+				}
+			})
+			if (status == 0) res.status(404).json({ message: `Enrollment #${enrollment_id} does'nt exists` })
+			else res.status(200).json({ message: 'Enrollment deleted sucessfully' })
 		} catch (error) {
 			res.status(500).json({ message: error.message })
 		}

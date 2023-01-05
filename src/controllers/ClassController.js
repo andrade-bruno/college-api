@@ -49,8 +49,10 @@ class ClassController {
 		const { id } = req.params
 
 		try {
-			await db.Classes.destroy({ where: { id: Number(id) } })
-			res.status(200).json({ message: 'Class deleted sucessfully' })
+			const status = await db.Classes.destroy({ where: { id: Number(id) } })
+
+			if (status == 0) res.status(404).json({ message: `Class #${id} does'nt exists` })
+			else res.status(200).json({ message: 'Class deleted sucessfully' })
 		} catch (error) {
 			res.status(500).json({ message: error.message })
 		}

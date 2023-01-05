@@ -49,8 +49,10 @@ class RoleController {
 		const { id } = req.params
 
 		try {
-			await db.Roles.destroy({ where: { id: Number(id) } })
-			res.status(200).json({ message: 'Role deleted sucessfully' })
+			const status = await db.Roles.destroy({ where: { id: Number(id) } })
+
+			if (status == 0) res.status(404).json({ message: `Role #${id} does'nt exists` })
+			else res.status(200).json({ message: 'Role deleted sucessfully' })
 		} catch (error) {
 			res.status(500).json({ message: error.message })
 		}
