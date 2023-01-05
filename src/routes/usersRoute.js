@@ -12,5 +12,6 @@ router.delete('/users/:id', UserController.deleteUser)
 
 router.get('/users/:student_id/enrollments/', UserController.getEnrollmentsByStudentId)
 router.get('/users/:student_id/enrollments/:enrollment_id', UserController.getEnrollmentById)
+router.post('/users/:student_id/enrollments/', UserController.createEnrollment)
 
 module.exports = router

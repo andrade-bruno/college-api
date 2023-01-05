@@ -84,6 +84,19 @@ class UserController {
 			res.status(500).json({ message: error.message })
 		}
 	}
+
+	static createEnrollment = async (req, res) => {
+		const { student_id } = req.params
+		const enrollment = { ...req.body, student_id }
+		console.log(enrollment)
+
+		try {
+			const newEnrollment = await db.Enrollments.create(enrollment)
+			res.status(201).json({ message: 'Enrollment created successfully', enrollment: newEnrollment })
+		} catch (error) {
+			res.status(500).json({ message: error.message })
+		}
+	}
 }
 
 module.exports = UserController
