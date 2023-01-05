@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
 		status: DataTypes.STRING
 	}, {});
 	Enrollments.associate = function (models) {
-		Enrollments.belongsTo(models.Users, {
-			foreignkey: 'student_id'
-		})
 		Enrollments.belongsTo(models.Classes, {
-			foreignkey: 'class_id'
+			foreignKey: 'class_id'
+		})
+		Enrollments.belongsTo(models.Users, {
+			foreignKey: 'student_id'
 		})
 	};
 	return Enrollments;

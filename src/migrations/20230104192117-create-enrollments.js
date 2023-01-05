@@ -8,11 +8,6 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			student_id: {
-				allowNull: false,
-				type: Sequelize.INTEGER,
-				references: { model: 'Users', key: 'id' }
-			},
 			status: {
 				type: Sequelize.STRING
 			},
@@ -20,6 +15,11 @@ module.exports = {
 				allowNull: false,
 				type: Sequelize.INTEGER,
 				references: { model: 'Classes', key: 'id' }
+			},
+			student_id: {
+				allowNull: false,
+				type: Sequelize.INTEGER,
+				references: { model: 'Users', key: 'id' }
 			},
 			createdAt: {
 				allowNull: false,
