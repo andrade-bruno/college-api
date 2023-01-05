@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser')
 const users = require('./usersRoute')
 const classes = require('./classesRoute')
+const roles = require('./rolesRoute')
 
 module.exports = server => {
 	server.use(bodyParser.json())
@@ -9,5 +10,5 @@ module.exports = server => {
 		res.status(200).send({ message: 'College API' })
 	})
 
-	server.use(users, classes)
+	server.use(users, classes, roles)
 }
