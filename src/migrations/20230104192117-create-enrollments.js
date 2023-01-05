@@ -8,13 +8,13 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			status: {
-				type: Sequelize.STRING
-			},
 			student_id: {
 				allowNull: false,
 				type: Sequelize.INTEGER,
 				references: { model: 'Users', key: 'id' }
+			},
+			status: {
+				type: Sequelize.STRING
 			},
 			class_id: {
 				allowNull: false,

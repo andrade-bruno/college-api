@@ -55,6 +55,35 @@ class UserController {
 			res.status(500).json({ message: error.message })
 		}
 	}
+
+	static getEnrollmentsByStudentId = async (req, res) => {
+		const { student_id } = req.params
+
+		try {
+			const enrollments = await db.Enrollments.findAll({
+				where: { student_id: Number(student_id) }
+			})
+			res.status(200).json(enrollments)
+		} catch (error) {
+			res.status(500).json({ message: error.message })
+		}
+	}
+
+	static getEnrollmentById = async (req, res) => {
+		const { student_id, enrollment_id } = req.params
+
+		try {
+			const enrollment = await db.Enrollments.findOne({
+				where: {
+					id: Number(enrollment_id),
+					student_id: Number(student_id)
+				}
+			})
+			res.status(200).json(enrollment)
+		} catch (error) {
+			res.status(500).json({ message: error.message })
+		}
+	}
 }
 
 module.exports = UserController

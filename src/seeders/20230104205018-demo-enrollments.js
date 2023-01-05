@@ -4,15 +4,15 @@ module.exports = {
 	up: (queryInterface, Sequelize) => {
 		return queryInterface.bulkInsert('Enrollments', [
 			{
-				status: 'Active',
 				student_id: 1,
+				status: 'Active',
 				class_id: 1,
 				createdAt: new Date(),
 				updatedAt: new Date()
 			},
 			{
-				status: 'Active',
 				student_id: 4,
+				status: 'Active',
 				class_id: 1,
 				createdAt: new Date(),
 				updatedAt: new Date()

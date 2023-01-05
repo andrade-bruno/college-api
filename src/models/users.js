@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
 		Users.hasMany(models.Enrollments, {
 			foreignKey: 'student_id'
 		})
-
 	};
 	return Users;
 };
