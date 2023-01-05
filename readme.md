@@ -1,4 +1,17 @@
-# College API
+# Library API
+
+Building an NodeJS server for a college/high school management, using MySQL local instance database
+
+Consumed tools
+- Sequelize
+- Body Parser
+- Express
+- Dotenv
+- Nodemon
+
+Course: Alura - ORM with NodeJS: API with Sequelize and MySQL
+
+[Certificate](https://cursos.alura.com.br/user/bruno-andrade18/course/orm-nodejs-api-sequelize-mysql/certificate)
 
 Creating models
 
@@ -33,7 +46,7 @@ Seeding
 
 Reverting last seed
 
-	npx sequelize db:seed:undo
+	npx sequelize-cli db:seed:undo
 
 Reverting seed for specific table
 
