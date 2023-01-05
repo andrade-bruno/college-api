@@ -18,7 +18,7 @@ module.exports = {
 			active: {
 				type: Sequelize.BOOLEAN
 			},
-			role: {
+			occupation: {
 				type: Sequelize.STRING
 			},
 			createdAt: {
