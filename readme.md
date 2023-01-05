@@ -1,4 +1,4 @@
-# Library API
+# College API
 
 Building an NodeJS server for a college/high school management, using MySQL local instance database
 
