@@ -30,7 +30,7 @@ Reverting the last migration
 
 Reverting the last migration by executed time
 
-	db:migrate:undo --name [date-hour]-create-[table-name].js
+	npx sequelize-cli db:migrate:undo --name [date-hour]-create-[table-name].js
 
 Reverting all migrations
 
